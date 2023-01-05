@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  map-project-redis:
+    container_name: map-project-redis
+    build:
+      dockerfile: Dockerfile
+      context: ./redis
+    image: ceh2805/map-project-redis
+    ports:
+      - "6379:6379"
+  map-project-database:
+    container_name: map-project-database
+    build:
+      dockerfile: Dockerfile
+      context: ./database
+    image: ceh2805/map-project-database
+    environment:
+      - MARIADB_DATABASE=map-project
+      - MARIADB_ROOT_PASSWORD=${SPRING_DATASOURCE_PASSWORD}
+    volumes:
+      - ./database/config:/etc/mysql/conf.d
+    ports:
+      - "3306:3306"
+
