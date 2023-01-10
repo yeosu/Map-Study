@@ -1,7 +1,9 @@
 package com.example.map.api.service
 
+import org.springframework.boot.test.context.SpringBootTest
 import spock.lang.Specification
 
+import javax.swing.Spring
 import java.nio.charset.StandardCharsets
 
 class KakaoUriBuilderServiceTest extends Specification {
